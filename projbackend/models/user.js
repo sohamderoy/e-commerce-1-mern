@@ -41,7 +41,7 @@ userSchema.method = {
     securePassword: function (plainpassword) {
         if (!password) return "";
         try {
-            return crypto.createHmac('sha256', this.salt).update(plainpassword).digest('hex');
+            return crypto.createHmac('sha256', this.salt).update(plainpassword).digest('hex'); //crypto.createHmac().update().digest();
         }
         catch (err) {
             return "";
