@@ -20,7 +20,7 @@ var userSchema = new mongoose.Schema(
       type: String,
       trim: true,
       required: true,
-      unique: true
+      unique: true // Note: Will get a 400 BAD REQUEST if the email of two users are unique
     },
     userinfo: {
       type: String,
@@ -55,7 +55,7 @@ userSchema
   });
 
 userSchema.methods = {
-  autheticate: function(plainpassword) {
+  authenticate: function(plainpassword) {
     return this.securePassword(plainpassword) === this.encry_password;
   },
 
